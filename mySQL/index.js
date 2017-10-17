@@ -92,8 +92,9 @@ function getContentsFromDatabase(filter, callback){
 	var resultsAsString = '';
 
 	if(filter){
+		filter = filter + '%';
 		query = connection.query('SELECT id, content FROM test ' +
-			'WHERE content LIKE "' + filter + '%"');
+			'WHERE content LIKE ?', filter);
 	} else{
 		query = connection.query('SELECT id, content FROM test');
 	}
@@ -132,7 +133,7 @@ function addContentToDatabase(content, callback){
 	});
 
 	connection.query('INSERT INTO test (content) ' +
-		'VALUES ("' + content + '")',
+		'VALUES (?)', content,
 		function(err){
 			if(err){
 				console.log('Could not insert content "' + content + 

@@ -1,10 +1,13 @@
-file:///C:/Users/james/Downloads/nodecraftsman.pdf
+file:///C:/Users/james/Downloads/Node%20Craftsman.pdf
 
-page
-74
+pdf page
+89
 
 revisit:
 - Event emitters
+
+mysql:
+mysql -h127.0.0.1 -uroot -p
 
 remote:
 https://github.com/JHerman2004/nodeCraftsman.git
