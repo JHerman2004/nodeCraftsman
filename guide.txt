@@ -1,7 +1,10 @@
 file:///C:/Users/james/Downloads/nodecraftsman.pdf
 
 page
-70
+74
 
 revisit:
 - Event emitters
+
+remote:
+https://github.com/JHerman2004/nodeCraftsman.git
