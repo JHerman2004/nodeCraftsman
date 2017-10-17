@@ -1,13 +1,32 @@
 file:///C:/Users/james/Downloads/Node%20Craftsman.pdf
 
+
 pdf page
-89
+90
+
+
+
 
 revisit:
 - Event emitters
 
-mysql:
-mysql -h127.0.0.1 -uroot -p
+
+
 
 remote:
 https://github.com/JHerman2004/nodeCraftsman.git
+
+
+mysql:
+mysql -h127.0.0.1 -uroot -p
+
+
+To get MongoDB working:
+
+Make sure you control sudo (may need to check hosts and hostname are consistent in rootfolder /etc)
+Follow instructions in http://codeforcoffee.org/Install-Ubuntu-Bash-Node-MongoDB-MySQL-on-Windows-10
+
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+Make data/db folders using sudo mkdir -p /data/db
+Use sudo mongod to start mongodb
