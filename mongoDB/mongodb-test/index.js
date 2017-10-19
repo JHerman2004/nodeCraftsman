@@ -1,5 +1,5 @@
 'use strict'
-
+var customFunctions = require('./customFunctions');
 var MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect(
@@ -8,8 +8,14 @@ MongoClient.connect(
 		var collection = connection.collection('customers');
 
 		var doFind = function(callback){
-			collection.find().toArray(function(err, documents){			
-				console.dir(documents);
+			collection.find(
+			{},
+			{
+				// 'sort': [['v','asc'],['n','desc']]
+			}
+			).toArray(function(err, documents){			
+				// console.dir(documents);
+				customFunctions.logDocuments(documents);
 				callback();
 			});
 		};
@@ -33,20 +39,20 @@ MongoClient.connect(
 
 		var doUpdate = function(){
 			collection.update(
-				{'v': {'$gt': 5}},
-				{'$set': {'valuable': true}},
-				{'multi': true},
+				{'n': '#20'},
+				{'$set': {'n': '#20', 'v': 1} },
+				{'multi': true, 'upsert': true},
 				function(err, count){
 					console.log();
-					console.log('Updated', i, 'documents');
+					console.log('Updated', count.result.n, 'documents');
 					doFind(function(){
-						collection.remove(), function(){
-							collection.close();
+						collection.remove({}, function(){
+							connection.close();
 						});
+					});
 				});
-		});
-	};
+		};
 
-	doInsert(0);
-	
+		doInsert(0);
+
 	});
