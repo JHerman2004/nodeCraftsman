@@ -5,3 +5,5 @@ function logDocuments(documents){
 }
 
 exports.logDocuments = logDocuments;
+
+
