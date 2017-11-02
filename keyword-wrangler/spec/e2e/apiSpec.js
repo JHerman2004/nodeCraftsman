@@ -2,10 +2,30 @@
 
 var request = require('request');
 var dbSession = require('../../src/backend/dbSession.js');
+var Server = require('../../src/backend/server.js').Server;
 var resetDatabase = require('../resetDatabase.js');
 var async = require('async');
 
 describe('The API', function(){
+
+	var server;
+
+	beforeEach(function(done){
+		server = Server(8081);
+		server.listen(function(err){
+			resetDatabase(dbSession, function(){
+				done(err);
+			});
+		});
+	});
+
+	afterEach(function(done){
+		server.close(function(){
+			resetDatabase(dbSession, function(){
+				done();
+			});
+		});
+	});
 
 	it('should respond to a GET request at /api/keywords/', function(done){
 		var expected = {
@@ -18,10 +38,6 @@ describe('The API', function(){
 
 		async.series(
 			[
-
-			function(callback){
-				resetDatabase(dbSession, callback);
-			},
 
 			function(callback){
 				dbSession.insert(
@@ -47,9 +63,10 @@ describe('The API', function(){
 			],
 			
 			function(err, results){
+				if(err) throw(err);
 				request.get(
 				{
-					'url': 'http://127.0.0.1:8080/api/keywords/',
+					'url': 'http://127.0.0.1:8081/api/keywords/',
 					'json': true
 				},
 				function (err, res, body){

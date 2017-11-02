@@ -11,13 +11,13 @@ var resetDatabase = function(dbSession, callback){
 			dbSession.remove('keyword', '1', function(err){
 				callback(err)
 			});
-		};
+		},
 
 		function(callback){
 			dbSession.remove('category', '1', function(err){
 				callback(err)
 			});
-		};
+		}
 
 		],
 
