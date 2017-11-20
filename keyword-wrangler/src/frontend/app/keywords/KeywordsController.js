@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 (function(){
 
@@ -14,6 +14,7 @@
 /* resolveEntity is a helper function which is used in partials/keywordCategoryGridCell.html
 
 in order to display the name of a keyword category based on its id */
+
 $scope.resolveEntity = resolveEntity;
 
 /* A repository is the connection between this controller and the REST Api.

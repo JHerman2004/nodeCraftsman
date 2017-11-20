@@ -7,7 +7,7 @@
 	app.config(['$routeProvider',
 		function($routeProvider){
 
-		// This makes app/keywords/KeywordsController.js handle the http://localhost/#/url
+		// This makes app/keywords/KeywordsController.js handle the http://localhost/#/ url
 
 		$routeProvider.
 			when('/', {

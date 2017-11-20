@@ -6,7 +6,7 @@
 
 	"dev": {
 		"driver": "sqlite3",
-		"filename": "/var/tmp/keyword-wrangler.test.sqlite"
+		"filename": "/var/tmp/keyword-wrangler.dev.sqlite"
 	},
 
 	"production": {

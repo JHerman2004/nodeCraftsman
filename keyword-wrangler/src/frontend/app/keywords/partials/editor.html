@@ -10,13 +10,13 @@
 		<select
 		ng-model="newKeyword.categoryID"
 		ng-init="newKeyword.categoryID = 1"
-		ng-options="keywordCategory.id as keywordCategory.name for keywordCategory \
-		in keywordCategories">
+		ng-options="keywordCategory.id as keywordCategory.name for keywordCategory in keywordCategories">
+
 	</select>
 	<button ng-class="newKeyword.value.length > 0 && 'btn btn-success' || btn" 
-		ngclick="newKeyword.value.length > 0 && createKeyword(newKeyword)">Create
+		ng-click="newKeyword.value.length > 0 && createKeyword(newKeyword)">Create
 	</button>
 </form>
 </div>
 
-<div class="gridStyle" ng-grid="keywordGridOptions"></div>
+<div class="gridStyle" ng-grid="keywordsGridOptions"></div>
